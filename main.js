@@ -32,16 +32,14 @@ routes.get('/login', (req, res) => {
         "code": code,
     }).then(function (superres, err) {
         if (err) {
-            console.log(err)
-            console.log(err.response);
+            console.log("then-if", err);
             res.send(superres.response);
         } else {
-            console.log(superres.response);
-            res.send(superres.response);
+            // console.log("then-else", superres);
+            res.send(superres);
         }
     }).catch((superres) => {
-        console.log(superres.response.body);
-        console.log(superres.response);
+        console.log("catch",superres);
         res.send(superres.response.body);
     });
 });
@@ -60,16 +58,16 @@ routes.get('/code', (req, res) => {
     }).then(function (superres, err) {
         if (err) {
             console.log(err)
-            console.log(err.response);
+            console.log("thenif",err);
             res.send(superres.response);
         } else {
             // console.log(superres)
-            console.log(superres.response);
+            console.log("then-else", superres);
             res.send(superres.response);
         }
     }).catch((superres) => {
-        console.log(superres.response.body);
-        console.log(superres.response);
+        console.log("catch",superres.response.body);
+        console.log("catch",superres);
         res.send(superres.response.body);
     });
 });
